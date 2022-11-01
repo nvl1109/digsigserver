@@ -89,7 +89,7 @@ class TegraSigner (Signer):
                 shutil.copyfile(src, dest + '.real')
                 shutil.copymode(src, dest + '.real')
                 with open(dest, 'w') as f:
-                    f.write('#!/bin/sh\npython2 {} "$@"\n'.format(dest + '.real'))
+                    f.write('#!/bin/sh\npython {} "$@"\n'.format(dest + '.real'))
                 os.chmod(dest, 0o755)
                 logger.debug("Copy-wrapped {} -> {}".format(src, dest))
             else:
